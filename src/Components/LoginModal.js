@@ -20,13 +20,13 @@ const LoginModal = ({closeModal}) => {
 
                         <p className='text-2xl text-center text-white'>Sign in to continue...</p>
 
-                        <input type="email"  placeholder="Your Name" className='py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white' />
+                        <input type="email"  placeholder="Your Name" className='py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white caret-white' />
                         
-                        <input type="email"  placeholder="Password" className='py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl' />
+                        <input type="email"  placeholder="Password" className='py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white' />
 
                     
               <button className='rounded-xl bg-gray-400 min-w-[12vw]  hover:bg-[#0F172A]'>
-                <p className='font-Monsterrat text-white  p-2 tracking-wide font-bold lg:font-normal'>Login</p>
+                <p className='text-white  p-2 tracking-wide font-bold '>Login</p>
               </button>
 
                     </form>
