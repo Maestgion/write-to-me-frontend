@@ -10,7 +10,7 @@ const Navbar = () => {
           {/* logo */}
 
           <div >
-           <FaConnectdevelop className="text-5xl  font-extrabold cursor-pointer hover:animate-pulse"/>
+           <FaConnectdevelop className="text-5xl  font-extrabold cursor-pointer hover:animate-spin"/>
            
           </div>
 

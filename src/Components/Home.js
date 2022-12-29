@@ -16,7 +16,7 @@ const Home = () => {
 
                 <div className='text-2xl text-white font-extrabold '>
                   <p className='text-center'>Welcome </p>
-                  <p>to the dev community⭐</p>
+                  <p className='text-center'>to the dev community⭐</p>
                 </div>
 
                 <div className='flex gap-10 '>

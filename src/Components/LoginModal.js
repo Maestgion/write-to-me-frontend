@@ -1,0 +1,38 @@
+import React from 'react'
+import { ImCancelCircle } from "react-icons/im";
+
+const LoginModal = () => {
+  return (
+    <>
+
+        <div className='flex justify-center items-center h-[100vh] bg-[#0F172A] backdrop-filter backdrop-blur-md '>
+            {/* parent div */}
+
+            <button className='relative left-[29vw] bottom-[22vh]'>
+                        <ImCancelCircle className='text-white text-xl hover:text-red-500' />
+                        </button>
+                {/* Modal div */}
+                    <form action="/" className='w-[30vw] h-[50vh] border rounded-xl flex flex-col gap-10 items-center justify-center px-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10'>
+
+
+                        <p className='text-2xl text-center text-white'>Sign in to continue...</p>
+
+                        <input type="email"  placeholder="Your name" className='py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white' />
+                        
+                        <input type="email"  placeholder="Password" className='py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl' />
+
+                    
+              <button className='rounded-xl bg-gray-400 min-w-[12vw]  hover:bg-[#0F172A]'>
+                <p className='font-Monsterrat text-white  p-2 tracking-wide font-bold lg:font-normal'>Login</p>
+              </button>
+
+                    </form>
+
+            
+        </div>
+
+    </>
+  )
+}
+
+export default LoginModal
