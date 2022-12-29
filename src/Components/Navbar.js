@@ -9,15 +9,18 @@ const Navbar = () => {
 
           {/* logo */}
 
-          <div >
+          <NavLink to="/">
            <FaConnectdevelop className="text-5xl  font-extrabold cursor-pointer hover:animate-spin"/>
            
-          </div>
+          </NavLink>
 
         {/* list */}
 
           <div>
-            <ul className="flex gap-8 text-xl font-bold list-none">
+            <ul className="flex gap-12 text-xl font-bold list-none">
+              <li>
+                <NavLink to="/" className="hover:animate-pulse" >Home</NavLink>
+              </li>
               <li>
                 <NavLink to="/about" className="hover:animate-pulse" >About</NavLink>
               </li>

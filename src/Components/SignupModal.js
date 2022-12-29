@@ -40,7 +40,7 @@ const SignupModal = ({closeModal}) => {
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl"
           />
           <input
-            type="number"
+            type="tel"
             placeholder="Mobile Number"
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl"
           />
