@@ -1,7 +1,18 @@
 import React from 'react'
 import Navbar from './Navbar'
+import { useState } from 'react'
+import LoginModal from './LoginModal'
+
+
 
 const Home = () => {
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleOnClick = () =>{
+     setOpenModal(true)
+  } 
+
   return (
     <>
     <div className='h-[100vh]  ' style={{
@@ -20,7 +31,7 @@ const Home = () => {
                 </div>
 
                 <div className='flex gap-10 '>
-                    <button className="font-bold text-xl rounded-full bg-gray-400 backdrop-filter backdrop-blur-sm text-white  py-2 px-auto w-[10vw] hover:bg-[#0F172A] ">
+                    <button className="font-bold text-xl rounded-full bg-gray-400 backdrop-filter backdrop-blur-sm text-white  py-2 px-auto w-[10vw] hover:bg-[#0F172A] " onClick={handleOnClick}>
                       Login
                     </button>
                     
@@ -32,7 +43,7 @@ const Home = () => {
                 </div>
 
                 
-                
+                {openModal && <LoginModal closeModal={setOpenModal} />}
               </div>
            
       </div>

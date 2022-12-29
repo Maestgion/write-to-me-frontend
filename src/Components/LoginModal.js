@@ -1,14 +1,17 @@
 import React from 'react'
 import { ImCancelCircle } from "react-icons/im";
 
-const LoginModal = () => {
+const LoginModal = ({closeModal}) => {
+    const handleOnClick  = ()=>{
+        closeModal(false)
+    }
   return (
     <>
 
-        <div className='flex justify-center items-center h-[100vh] bg-[#0F172A] backdrop-filter backdrop-blur-md '>
+        <div className='flex justify-center items-center absolute  right-[32vw]  bg-[rgba(200, 200, 200)] backdrop-filter backdrop-blur-sm   '>
             {/* parent div */}
 
-            <button className='relative left-[29vw] bottom-[22vh]'>
+            <button className='relative left-[29vw] bottom-[22vh]' onClick={handleOnClick}>
                         <ImCancelCircle className='text-white text-xl hover:text-red-500' />
                         </button>
                 {/* Modal div */}
