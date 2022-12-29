@@ -2,16 +2,24 @@ import React from 'react'
 import Navbar from './Navbar'
 import { useState } from 'react'
 import LoginModal from './LoginModal'
+import SignupModal from './SignupModal'
 
 
 
 const Home = () => {
 
-  const [openModal, setOpenModal] = useState(false)
+  const [openLoginModal, setOpenLoginModal] = useState(false)
+  
+  const [openSignupModal, setOpenSignupModal] = useState(false)
 
-  const handleOnClick = () =>{
-     setOpenModal(true)
-  } 
+  const handleOnClickLogin = () => {
+    setOpenLoginModal(true)
+  }
+
+  const handleOnClickSignup = ()=>{
+    setOpenSignupModal(true)
+  }
+  
 
   return (
     <>
@@ -31,11 +39,11 @@ const Home = () => {
                 </div>
 
                 <div className='flex gap-10 '>
-                    <button className="font-bold text-xl rounded-full bg-gray-400 backdrop-filter backdrop-blur-sm text-white  py-2 px-auto w-[10vw] hover:bg-[#0F172A] " onClick={handleOnClick}>
+                    <button className="font-bold text-xl rounded-full bg-gray-400 backdrop-filter backdrop-blur-sm text-white  py-2 px-auto w-[10vw] hover:bg-[#0F172A] " onClick={handleOnClickLogin}>
                       Login
                     </button>
                     
-                    <button className="font-bold text-xl rounded-full bg-gray-400 backdrop-filter backdrop-blur-sm text-white  py-2 px-auto w-[10vw]  hover:bg-[#0F172A]">
+                    <button className="font-bold text-xl rounded-full bg-gray-400 backdrop-filter backdrop-blur-sm text-white  py-2 px-auto w-[10vw]  hover:bg-[#0F172A] " onClick={handleOnClickSignup}>
                       Sign up
                     </button>
                     
@@ -43,7 +51,12 @@ const Home = () => {
                 </div>
 
                 
-                {openModal && <LoginModal closeModal={setOpenModal} />}
+                {openLoginModal && <LoginModal closeModal={setOpenLoginModal} />}
+
+                {
+                  openSignupModal && 
+                  <SignupModal closeModal={setOpenSignupModal}/>
+                }
               </div>
            
       </div>

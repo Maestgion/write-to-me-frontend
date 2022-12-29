@@ -20,7 +20,7 @@ const LoginModal = ({closeModal}) => {
 
                         <p className='text-2xl text-center text-white'>Sign in to continue...</p>
 
-                        <input type="email"  placeholder="Your name" className='py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white' />
+                        <input type="email"  placeholder="Your Name" className='py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white' />
                         
                         <input type="email"  placeholder="Password" className='py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl' />
 
