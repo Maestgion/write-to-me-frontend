@@ -15,7 +15,7 @@ const LoginModal = ({closeModal}) => {
                         <ImCancelCircle className='text-white text-xl hover:text-red-500' />
                         </button>
                 {/* Modal div */}
-                    <form action="/" className='w-[30vw] h-[50vh] border rounded-xl flex flex-col gap-10 items-center justify-center px-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10'>
+                    <form action="/" className='w-[30vw] h-[50vh] border rounded-xl flex flex-col gap-10 items-center justify-center px-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10 text-white'>
 
 
                         <p className='text-2xl text-center text-white'>Sign in to continue...</p>

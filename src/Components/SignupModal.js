@@ -22,7 +22,7 @@ const SignupModal = ({closeModal}) => {
         {/* Modal div */}
         <form
           action="/"
-          className="w-[30vw]   border rounded-xl flex flex-col gap-8 items-center justify-center px-8 py-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10"
+          className="w-[30vw]   border rounded-xl flex flex-col gap-8 items-center justify-center px-8 py-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10 text-white"
         >
           <p className="text-2xl text-center text-white">
             Sign up to connect...
@@ -31,8 +31,8 @@ const SignupModal = ({closeModal}) => {
           <input
             type="text"
             placeholder="Your Name"
-            className="py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white"
-   caret-white        />
+            className="py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white  caret-white   "
+       />
 
           <input
             type="email"
