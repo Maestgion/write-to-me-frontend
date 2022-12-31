@@ -15,7 +15,9 @@ const SignupModal = ({ closeModal }) => {
     password: "",
     cnfPassword: "",
   });
+
   let name, value;
+
   const handleInputs = (e) => {
     name = e.target.name;
     value = e.target.value;
@@ -23,12 +25,10 @@ const SignupModal = ({ closeModal }) => {
   };
 
   const handleSubmit = async (e) => {
-    // window.alert("jkhgfdsgghjkl")
-    e.preventdefault();
-    // console.log("hi")
+    
+    e.preventDefault();
 
-    const { name, email, phone, passion, password, cnfPassowrd } = inputs;
-
+    const { name, email, phone, passion, password, cnfPassword } = inputs;
 
     window.alert(name)
       
@@ -43,17 +43,12 @@ const SignupModal = ({ closeModal }) => {
         phone,
         passion,
         password,
-        cnfPassowrd,
+        cnfPassword,
       }),
+
     });
 
-    console.log("hiiouyghgf")
-
-
     const data = await res.json();
-
-    console.log("hi no")
-
 
     if (data.status === 422 || !data) {
       window.alert("Invalid Registration");
@@ -89,7 +84,7 @@ const SignupModal = ({ closeModal }) => {
         </button>
         {/* Modal div */}
         <form
-          
+          method="POST"
      
           className="w-[30vw]  border rounded-xl flex flex-col gap-8 items-center justify-center px-8 py-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10 text-white"
         >
@@ -150,7 +145,7 @@ const SignupModal = ({ closeModal }) => {
           <button
             type="submit"
             className="rounded-xl bg-gray-400 min-w-[12vw]  hover:bg-[#0F172A]"
-            onClick={()=> handleSubmit()}
+            onClick={(e)=> {handleSubmit(e)}}
           >
             <p className=" text-white  p-2 tracking-wide font-bold ">
               Register
