@@ -1,11 +1,9 @@
 import React from "react";
 import { ImCancelCircle } from "react-icons/im";
 import { useState } from "react";
-import {useNavigate} from "react-router-dom"
 
 const SignupModal = ({ closeModal }) => {
 
-  const navigate = useNavigate();
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -30,9 +28,9 @@ const SignupModal = ({ closeModal }) => {
 
     const { name, email, phone, passion, password, cnfPassword } = inputs;
 
-    window.alert(name)
+    // window.alert(name)
       
-    const res = fetch("/register", {
+    const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,20 +48,17 @@ const SignupModal = ({ closeModal }) => {
 
     const data = await res.json();
 
-    if (data.status === 422 || !data) {
+    if (data.status === 422 || !data) 
+    {
       window.alert("Invalid Registration");
       console.log("Invalid Registration");
-    console.log("hvhvhtvi")
-
-    } else {
+    } 
+    else 
+    {
       window.alert(" Registration Successful");
       console.log("Registration Successful");
-    console.log("hi from kjhg")
-      
-      navigate("/")
     }
 
-    console.log("hi09876")
 
   };
 
@@ -85,7 +80,7 @@ const SignupModal = ({ closeModal }) => {
         {/* Modal div */}
         <form
           method="POST"
-     
+          onSubmit={handleSubmit}
           className="w-[30vw]  border rounded-xl flex flex-col gap-8 items-center justify-center px-8 py-8 bg-gray-400  backdrop-filter backdrop-blur-sm bg-opacity-10 -z-10 text-white"
         >
           <p className="text-2xl text-center text-white">
@@ -93,50 +88,62 @@ const SignupModal = ({ closeModal }) => {
           </p>
 
           <input
+            
             type="text"
             placeholder="Your Name"
             className="py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white  caret-white"
+            required
             name="name"
             value={inputs.name}
             onChange={handleInputs}
           />
 
           <input
+            
             type="email"
             placeholder="Your Email"
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white"
+            required
             name="email"
             value={inputs.email}
             onChange={handleInputs}
           />
           <input
+            
             type="tel"
             placeholder="Mobile Number"
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white"
+            required
             name="phone"
             value={inputs.phone}
             onChange={handleInputs}
           />
           <input
+            
             type="text"
             placeholder="Passion"
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white"
+            required
             name="passion"
             value={inputs.passion}
             onChange={handleInputs}
           />
           <input
+            
             type="password"
             placeholder="Password"
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white"
+            required
             name="password"
             value={inputs.password}
             onChange={handleInputs}
           />
           <input
+            
             type="password"
             placeholder="Confirm Password"
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white"
+            required
             name="cnfPassword"
             value={inputs.cnfPassword}
             onChange={handleInputs}
@@ -145,7 +152,7 @@ const SignupModal = ({ closeModal }) => {
           <button
             type="submit"
             className="rounded-xl bg-gray-400 min-w-[12vw]  hover:bg-[#0F172A]"
-            onClick={(e)=> {handleSubmit(e)}}
+           
           >
             <p className=" text-white  p-2 tracking-wide font-bold ">
               Register
