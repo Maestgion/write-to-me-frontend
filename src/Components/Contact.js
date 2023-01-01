@@ -8,11 +8,10 @@ import { useEffect, useState } from 'react'
 
 const Contact = () => {
 
-  const [userData, setUserData] = useState({});
-
-  const [contactData, setContactData] = useState({
+  const [userData, setUserData] = useState({
     name:"", email:"", phone: "", message:""
-  })
+  });
+
 
   const callContactPage= async ()=> {
 
@@ -27,7 +26,8 @@ const Contact = () => {
     const data = await res.json();
     console.log(data)
 
-    setUserData(data)
+
+    setUserData({...userData, name:data.name, email:data.email, phone:data.phone})
 
     if(!data===200)
     {
@@ -52,7 +52,7 @@ const Contact = () => {
   name = e.target.name;
   value = e.target.value;
 
-  setContactData({...contactData, [name]:value});
+  setUserData({...userData, [name]:value});
 
   } 
 
@@ -60,7 +60,7 @@ const Contact = () => {
   const handleSubmit = async (e) =>{
     e.preventDefault()
 
-    const {name, email, phone, message} = contactData;
+    const {name, email, phone, message} = userData;
 
     const res = await fetch("/contact", {
       method: "POST",
@@ -126,7 +126,7 @@ const Contact = () => {
              <input type="tel" name="phone" value={userData.phone} onChange={handleChange} className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Number'  />
            </div>
    
-           <textarea name="message" id="msg" cols="30" rows="6" value={contactData.message} onChange={handleChange} className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none placeholder-white caret-white text-white px-8 py-4'></textarea>
+           <textarea name="message" id="msg" cols="30" rows="6" value={userData.message} onChange={handleChange} className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none placeholder-white caret-white text-white px-8 py-4'></textarea>
 
            <button
             type="submit"
