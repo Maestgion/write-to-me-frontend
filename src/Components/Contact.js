@@ -2,10 +2,49 @@ import React from 'react'
 import BasicCard from './BasicCard'
 import { HiDevicePhoneMobile } from "react-icons/hi2";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { FaRegAddressCard } from "react-icons/fa";
+import { GiBurningPassion } from "react-icons/gi";
 import Navbar from './Navbar';
+import { useEffect, useState } from 'react'
 
 const Contact = () => {
+
+  const [userData, setUserData] = useState({});
+
+  
+
+  const callContactPage= async ()=> {
+
+  try{
+    const res = await fetch("/getdata", {
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+      }
+    });
+
+    const data = await res.json();
+    console.log(data)
+
+    setUserData(data)
+
+    if(!data===200)
+    {
+      throw new Error(data.error)
+    }
+
+  }catch(e){
+    console.log(e)
+  }
+
+    
+
+  }
+
+  useEffect(() => {
+        callContactPage();
+  }, [])
+  
+
   return (
     <>  
 
@@ -21,9 +60,9 @@ const Contact = () => {
            {/* basic cards */}
    
            <div className='flex gap-20'>
-               <BasicCard icon={<HiDevicePhoneMobile/>} title={"Phone"} data={"+91 7865453212"}/>
-               <BasicCard icon={<MdOutlineMailOutline/>} title={"Email"} data={"ab@xyz.com"} />
-               <BasicCard icon={<FaRegAddressCard/>} title={'Address'} data={"Chennai, TN"} />
+               <BasicCard icon={<HiDevicePhoneMobile/>} title={"Phone"} data={userData.phone}/>
+               <BasicCard icon={<MdOutlineMailOutline/>} title={"Email"} data={userData.email} />
+               <BasicCard icon={<GiBurningPassion/>} title={'Passion'} data={userData.passion} />
            </div>
    
            {/* contact form */}
@@ -37,9 +76,9 @@ const Contact = () => {
           <form action='/' className='flex flex-col gap-10 justify-center  '>
    
            <div className='w-full caret-white flex gap-10'>
-             <input type="text" className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Name'  />
-             <input type="email" className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Email'  />
-             <input type="tel" className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Number'  />
+             <input type="text" value={userData.name} className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Name'  />
+             <input type="email" value={userData.email} className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Email'  />
+             <input type="tel" value={userData.phone} className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none px-8 py-4 placeholder-white w-[20vw] text-white' placeholder='Your Number'  />
            </div>
    
            <textarea name="message" id="msg" cols="30" rows="8" className='bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl outline-none placeholder-white caret-white text-white px-8 py-4'></textarea>
