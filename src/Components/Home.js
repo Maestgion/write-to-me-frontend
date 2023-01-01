@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import LoginModal from './LoginModal'
 import SignupModal from './SignupModal'
 
@@ -11,6 +11,35 @@ const Home = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false)
   
   const [openSignupModal, setOpenSignupModal] = useState(false)
+
+  const [userData, setUserData] = useState("")
+
+  const userDetails = async () =>
+  {
+   try
+   {
+    const res = await fetch("/getdata", {
+      method: "GET",
+      headers:{
+          "Content-Type" : "appplication/json"
+      },
+
+    })
+
+
+    const data = await res.json();
+    setUserData(data);
+
+
+   }catch(e)
+   {
+    console.log(e);
+   }
+  }
+
+  useEffect (()=>{
+        userDetails();
+  },[])
 
   const handleOnClickLogin = () => {
     setOpenLoginModal(true)
@@ -35,7 +64,7 @@ const Home = () => {
 
                 <div className='text-2xl text-white font-extrabold '>
                   <p className='text-center'>Welcome </p>
-                  <p className='text-center'>to the dev community⭐</p>
+                  <p className='text-center'>to the dev community⭐ {userData.name}!</p>
                 </div>
 
                 <div className='flex gap-10 '>
