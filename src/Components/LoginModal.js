@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ImCancelCircle } from "react-icons/im";
 import { useState } from "react";
+import { UserContext } from "../App";
 
 const LoginModal = ({ closeModal }) => {
 
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
+
+ const {state, dispatch} = useContext(UserContext)
 
 
   const handleSubmit = async (e) =>{
@@ -32,6 +35,7 @@ const LoginModal = ({ closeModal }) => {
     } 
     else 
     {
+      dispatch({type:"USER", payload:true})
       window.alert(" Login Successful");
       console.log("Login Successful");
     }

@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
 
 
 
 const Logout = () => {
 
     const navigate = useNavigate();
+
+    const {state, dispatch} = useContext(UserContext)
 
     const userLogout = async () =>{
 
@@ -19,13 +22,13 @@ const Logout = () => {
 
         const data = await res.json();
 
-        const error = ()=>{
-            
-           throw new Error(data.error);
+        
+
+        if(data)
+        {
+            navigate("/")
+            dispatch({type:"USER", payload:false})
         }
-
-        data ? navigate("/") : error()
-
         console.log(data)
 
       }catch(e){
