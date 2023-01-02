@@ -47,9 +47,9 @@ const Logout = () => {
     
 
   return (
-    <div>
-        hgfkjhgf
-    </div>
+    <>
+        
+    </>
   )
 }
 

@@ -3,51 +3,53 @@ import { ImCancelCircle } from "react-icons/im";
 import { useState } from "react";
 import { UserContext } from "../App";
 
-const LoginModal = ({ closeModal }) => {
 
- const [email, setEmail] = useState('')
- const [password, setPassword] = useState('')
+const LoginModal = ({ closeModal, toastContainer }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
- const {state, dispatch} = useContext(UserContext)
+  const { state, dispatch } = useContext(UserContext);
 
 
-  const handleSubmit = async (e) =>{
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const res = await fetch("/login", {
       method: "POST",
-      headers:{
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
-        password
-      })
+        password,
+      }),
     });
 
     const data = await res.json();
     console.log(data);
 
-    if (data.status === 400 || !data) 
-    {
+    if (data.status === 400 || !data) {
       window.alert("Invalid credentials");
       console.log("Invalid credentials");
-    } 
-    else 
-    {
-      dispatch({type:"USER", payload:true})
-      window.alert(" Login Successful");
+    } else {
+      dispatch({ type: "USER", payload: true });
+      // window.alert(" Login Successful");
+
       console.log("Login Successful");
     }
+  };
 
-  }
-  
   const handleOnClick = () => {
     closeModal(false);
   };
- 
+
   return (
     <>
+    {/* <Toaster
+  position="top-right"
+  reverseOrder={false}
+/> */}
       <div className="flex justify-center items-center absolute  right-[32vw]  bg-[rgba(200, 200, 200)] backdrop-filter backdrop-blur-sm   ">
         {/* parent div */}
 
@@ -74,7 +76,9 @@ const LoginModal = ({ closeModal }) => {
             className="py-3 px-8 outline-none  min-w-full rounded-xl bg-gray-400 placeholder-white caret-white"
             name="email"
             value={email}
-            onChange={(e)=>{setEmail(e.target.value)}}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
 
           <input
@@ -84,16 +88,20 @@ const LoginModal = ({ closeModal }) => {
             className="py-3 px-8 outline-none bg-gray-400 placeholder-white min-w-full rounded-xl caret-white"
             name="password"
             value={password}
-            onChange={(e)=>{setPassword(e.target.value)}}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
 
           <button
             type="submit"
             className="rounded-xl bg-gray-400 min-w-[12vw]  hover:bg-[#0F172A]"
+           onClick={toastContainer}
           >
             <p className="text-white  p-2 tracking-wide font-bold ">Login</p>
           </button>
         </form>
+        
       </div>
     </>
   );

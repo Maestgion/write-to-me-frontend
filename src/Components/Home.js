@@ -7,7 +7,8 @@ import { UserContext } from '../App'
 
 
 
-const Home = () => {
+
+const Home = ({toastContainer}) => {
 
   const [openLoginModal, setOpenLoginModal] = useState(false)
   
@@ -131,7 +132,7 @@ const Home = () => {
               </div>
 
               
-              {openLoginModal && <LoginModal closeModal={setOpenLoginModal} />}
+              {openLoginModal && <LoginModal closeModal={setOpenLoginModal} toastContainer={toastContainer} />}
 
               {
                 openSignupModal && 

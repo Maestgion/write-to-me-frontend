@@ -6,7 +6,10 @@ import { UserContext } from "../App";
 const Navbar = () => {
 
   const {state, dispatch} = useContext(UserContext)
+  const notify=()=>{
 
+   
+  }
   return (
     <>
     {
@@ -34,8 +37,10 @@ const Navbar = () => {
       <NavLink to="/contact" className="hover:animate-pulse">Contact</NavLink>
     </li>
     <li>
-      <NavLink to="/logout" className="hover:animate-pulse">Logout</NavLink>
+      <NavLink to="/logout" className="hover:animate-pulse" onClick={notify}>Logout</NavLink>
     </li>
+
+    
  
   </ul>
 </div>
