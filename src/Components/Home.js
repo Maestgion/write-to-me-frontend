@@ -67,14 +67,33 @@ const Home = () => {
       <div className='flex justify-center items-center h-[80vh]'>
          
 
-              <div className=" w-[35vw] bg-gray-400 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 flex flex-col items-center py-12 gap-6">
+              <div className=" w-[33vw] bg-gray-400 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 flex flex-col items-center py-12 gap-6">
 
                 <div className='text-2xl text-white font-extrabold '>
                   <p className='text-center'>Welcome </p>
                   <p className='text-center'>to the dev community⭐ {userData.name}!</p>
                
                 </div>
-                
+                <div className='text-justify text-white text-lg font-semibold' >
+              
+                <p className='text-left'>{`while(passion==true) { `}</p>
+                <p>
+                {`
+                 keepCoding(); 
+                `}
+                <p>
+                  {
+                    `
+                       tired ? orderACofee() : nap() } 
+                    
+                    `
+                  }
+                </p>
+                  
+                  
+                  
+                   </p>
+                </div>
           
               </div>
            
