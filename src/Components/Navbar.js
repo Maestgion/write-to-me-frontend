@@ -27,6 +27,9 @@ const Navbar = () => {
               <li>
                 <NavLink to="/contact" className="hover:animate-pulse">Contact</NavLink>
               </li>
+              <li>
+                <NavLink to="/logout" className="hover:animate-pulse">Logout</NavLink>
+              </li>
            
             </ul>
           </div>
