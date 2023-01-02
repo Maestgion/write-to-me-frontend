@@ -11,6 +11,10 @@ const LoginModal = ({ closeModal, toastContainer }) => {
   const { state, dispatch } = useContext(UserContext);
 
 
+  const notify= ()=>{
+      toastContainer()
+    //  window.alert("kjh")
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,8 +38,8 @@ const LoginModal = ({ closeModal, toastContainer }) => {
       console.log("Invalid credentials");
     } else {
       dispatch({ type: "USER", payload: true });
-      // window.alert(" Login Successful");
-
+   
+      notify()
       console.log("Login Successful");
     }
   };
@@ -46,10 +50,7 @@ const LoginModal = ({ closeModal, toastContainer }) => {
 
   return (
     <>
-    {/* <Toaster
-  position="top-right"
-  reverseOrder={false}
-/> */}
+ 
       <div className="flex justify-center items-center absolute  right-[32vw]  bg-[rgba(200, 200, 200)] backdrop-filter backdrop-blur-sm   ">
         {/* parent div */}
 
@@ -96,7 +97,7 @@ const LoginModal = ({ closeModal, toastContainer }) => {
           <button
             type="submit"
             className="rounded-xl bg-gray-400 min-w-[12vw]  hover:bg-[#0F172A]"
-           onClick={toastContainer}
+            
           >
             <p className="text-white  p-2 tracking-wide font-bold ">Login</p>
           </button>

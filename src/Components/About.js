@@ -29,7 +29,7 @@ const About = () => {
     } catch (e) {
       console.log(e);
       navigate("/");
-      window.alert("Please login to access the Page");
+      // window.alert("Please login to access the Page");
     }
   };
 
