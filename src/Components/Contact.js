@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 const Contact = () => {
 
   const [userData, setUserData] = useState({
-    name:"", email:"", phone: "", message:""
+    name:"", email:"", phone: "", message:"", passion: ""
   });
 
 
@@ -27,7 +27,7 @@ const Contact = () => {
     console.log(data)
 
 
-    setUserData({...userData, name:data.name, email:data.email, phone:data.phone})
+    setUserData({...userData, name:data.name, email:data.email, phone:data.phone, passion:data.passion})
 
     if(!data===200)
     {
@@ -104,9 +104,12 @@ const Contact = () => {
            {/* basic cards */}
    
            <div className='flex gap-20'>
+            
                <BasicCard icon={<HiDevicePhoneMobile/>} title={"Phone"} data={userData.phone}/>
                <BasicCard icon={<MdOutlineMailOutline/>} title={"Email"} data={userData.email} />
-               <BasicCard icon={<GiBurningPassion/>} title={'Passion'} data={userData.passion} />
+               <BasicCard icon={<GiBurningPassion/>} title={'Passion'} data={userData.passion } />
+    {console.log(userData)}
+
            </div>
    
            {/* contact form */}
